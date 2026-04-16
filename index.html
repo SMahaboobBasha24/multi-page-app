@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Multi Page App</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#0f172a;
+color:white;
+}
+
+.container{
+padding:20px;
+text-align:center;
+}
+
+.page{
+display:none;
+}
+
+.active{
+display:block;
+}
+
+.nav{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+background:#1e293b;
+}
+
+.nav button{
+flex:1;
+padding:15px;
+border:none;
+background:#1e293b;
+color:white;
+cursor:pointer;
+}
+
+.nav button.active{
+background:#22c55e;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="home" class="page active">
+<h2>🏠 Home</h2>
+<p>Welcome to the app</p>
+</div>
+
+<div id="tasks" class="page">
+<h2>📋 Tasks</h2>
+<p>Your tasks will appear here</p>
+</div>
+
+<div id="profile" class="page">
+<h2>👤 Profile</h2>
+<p>User info section</p>
+</div>
+
+</div>
+
+<div class="nav">
+<button onclick="showPage('home', this)" class="active">Home</button>
+<button onclick="showPage('tasks', this)">Tasks</button>
+<button onclick="showPage('profile', this)">Profile</button>
+</div>
+
+<script>
+
+function showPage(id, btn){
+
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"))
+document.getElementById(id).classList.add("active")
+
+document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"))
+btn.classList.add("active")
+
+}
+
+</script>
+
+</body>
+</html>
